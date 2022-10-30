@@ -14,13 +14,12 @@ export class SorterPipe implements PipeTransform {
     // A KÖVETKEZŐ SORT TÁVOLÍTSD EL!!!
 
 
-
     /**
      * FELADAT!
      * Ellenőrzés: ha a value nem tömb vagy nincs megadva a key,
      * térj vissza a value változóval.
      */
-     if (!Array.isArray(value)|| !key ) return value;
+     if (!Array.isArray(value) || !key) return value;
     /**
      * FELADAT!
      * Térj vissza a value.sort metódus eredményével!
@@ -31,14 +30,14 @@ export class SorterPipe implements PipeTransform {
      *  összehasonlításának az eredményével.
      */
 
-     return value.sort((a, b) => {
-      if (typeof a[key] === 'number' && typeof b[key] === 'number') {
-        return a[key] - b[key];
-      }else{
-        return a[key].toString().toLowerCase().localeCompare(b[key].toString.toLowerCase)
-      }
-     })
-
+     else {
+      return value.sort((a, b) => {
+        if (typeof a[key] === 'number' && typeof b[key] === 'number') {
+          return a[key] - b[key];
+        } else {
+          return String(a[key]).toLowerCase().localeCompare(String(b[key]).toLowerCase())
+        }
+      });
+    }
   }
 }
-
